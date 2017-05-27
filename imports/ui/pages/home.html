@@ -1,0 +1,24 @@
+<template name="Home">
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>Forum</h1>
+            <p>“Don't raise your voice, improve your argument."</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Choose your room
+                    <a class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-room-create" href="#">
+                        <span class="glyphicon btn-glyphicon glyphicon-plus"></span>
+                        Create new
+                    </a>
+                </h1>
+            </div>
+        </div>
+        {{> List_rooms collection=CollectionRooms}}
+
+        {{> Modal_room_create collection=CollectionRooms modal='modal-room-create'}}
+    </div>
+</template>

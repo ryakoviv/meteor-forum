@@ -1,0 +1,21 @@
+<template name="Modal_room_update">
+    <!-- Modal -->
+    <div class="modal fade" id="{{modal}}" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update Room</h4>
+                </div>
+                <div class="modal-body">
+                    {{#if updateRoom}}
+                        {{> quickForm collection=collection doc=updateRoom id=formId type="update"}}
+                    {{/if}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</template>

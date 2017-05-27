@@ -1,0 +1,29 @@
+<template name="List_rooms">
+    <div class="row flex-row ">
+    {{#each rooms}}
+        <div class="col-xs-6 col-sm-4 col-lg-3 room-card">
+            <div class="thumbnail">
+                <div class="caption">
+                    <div class="author">
+                        Organizer <b>Bhaumik</b> |
+                        <br>
+                        <time>{{createdAt.toDateString}}</time>
+                    </div>
+                    <div class="room-card-toolbar">
+                        <span data-role="room-card-actions-update" data-toggle="modal" data-target="#modal-room-update"  class="glyphicon glyphicon-pencil"></span>
+                        <span data-role="room-card-actions-remove" class="glyphicon glyphicon-trash"></span>
+                    </div>
+                    <h3 class="room-card-title">{{title}}</h3>
+                    <p class="flex-text text-muted">
+                        {{desc}}
+                    </p>
+                        <!--<p><a class="btn btn-primary" href="#">Link</a></p>-->
+                </div>
+                <!-- /.caption -->
+            </div>
+            <!-- /.thumbnail -->
+        </div>
+    {{/each}}
+    </div>
+    {{> Modal_room_update collection=collection modal='modal-room-update'}}
+</template>
