@@ -1,0 +1,17 @@
+<template name="Room">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1> {{room.title}}
+                    <a class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-topic-create" href="#">
+                        <span class="glyphicon btn-glyphicon glyphicon-plus"></span>
+                        Create new
+                    </a>
+                </h1>
+            </div>
+        </div>
+    </div>
+    {{> List_topics room=currentRoom}}
+    {{> Modal_room_create collection=CollectionTopics formid='formTopicInsert' modal='modal-topic-create' title='Create Topic'}}
+</template>

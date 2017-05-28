@@ -2,19 +2,20 @@ import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
+
 SimpleSchema.extendOptions(['autoform']);
 
-export const Rooms = new Mongo.Collection('rooms');
+export const Topics = new Mongo.Collection('topics');
 
-Rooms.attachSchema(new SimpleSchema({
+Topics.attachSchema(new SimpleSchema({
     title: {
         type: String,
         label: 'Title'
     },
-    desc: {
+    roomId:{
         type: String,
-        label: 'Description',
-        autoform: {rows: 5}
+        label: 'Id of room',
+        autoform: { type: "hidden" }
     },
     createdAt: {
         type: Date,

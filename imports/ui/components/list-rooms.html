@@ -17,7 +17,7 @@
                     <p class="flex-text text-muted">
                         {{desc}}
                     </p>
-                        <!--<p><a class="btn btn-primary" href="#">Link</a></p>-->
+                    <span data-role="room-card-actions-chose" class="btn btn-primary">Chose</span>
                 </div>
                 <!-- /.caption -->
             </div>
@@ -25,5 +25,5 @@
         </div>
     {{/each}}
     </div>
-    {{> Modal_room_update collection=collection modal='modal-room-update'}}
+    {{> Modal_room_update collection=collection formid='formRoomUpdate' modal='modal-room-update'}}
 </template>
