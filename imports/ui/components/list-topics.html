@@ -1,90 +1,40 @@
 <template name="List_topics">
-    <div class="main_section">
-        <div class="container">
-            <div class="chat_container">
-                <!--chat_sidebar-->
-                <div class="col-sm-3 chat_sidebar">
-                    <div class="row">
-                        <div id="custom-search-input">
-                            <div class="input-group col-md-12">
-                                <input type="text" class="  search-query form-control" placeholder="Topics" />
-                                <button class="btn btn-danger" type="button">
-                                    <span class=" glyphicon glyphicon-search"></span>
-                                </button>
+    <!--chat_sidebar-->
+    <div class="col-sm-3 chat_sidebar">
+        <div class="row">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="  search-query form-control" placeholder="Topics" />
+                    <button class="btn btn-danger" type="button">
+                        <span class=" glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="dropdown all_conversation">
+                <div class="topics-header">
+                    <i class="fa fa-weixin" aria-hidden="true"></i>
+                    Choose topic
+                    <a class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#modal-topic-create" href="#">
+                        <span class="glyphicon btn-glyphicon glyphicon-plus"></span>
+                        Create new
+                    </a>
+                </div>
+            </div>
+            <div class="member_list">
+                <ul class="list-unstyled">
+                    {{#each topics}}
+                    <li class="left clearfix">
+                        <div class="chat-body clearfix">
+                            <div class="header_sec">
+                                <strong class="primary-font">{{title}}</strong>
                             </div>
                         </div>
-                        <div class="dropdown all_conversation">
-                            <div class="topics-header">
-                                <i class="fa fa-weixin" aria-hidden="true"></i>
-                                Choose topic
-                                <a class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#modal-topic-create" href="#">
-                                    <span class="glyphicon btn-glyphicon glyphicon-plus"></span>
-                                    Create new
-                                </a>
-                            </div>
-                        </div>
-                        <div class="member_list">
-                            <ul class="list-unstyled">
-                                {{#each topics}}
-                                <li class="left clearfix">
-                                    <div class="chat-body clearfix">
-                                        <div class="header_sec">
-                                            <strong class="primary-font">{{title}}</strong>
-                                        </div>
-                                    </div>
-                                </li>
-                                {{/each}}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--chat_sidebar-->
-
-                {{#if topicIsSelected}}
-                <div class="col-sm-9 message_section">
-                    <div class="row">
-                        <div class="new_message_head">
-                            <div class="pull-left"><button><i class="fa fa-plus-square-o" aria-hidden="true"></i>Messages</button></div>
-                        </div>
-                        <!--new_message_head-->
-
-                        <div class="chat_area">
-                            <ul class="list-unstyled">
-                                {{#each messages}}
-                                <li class="left clearfix message {{#if isSender}}is-sender{{/if}}">
-                                    <span class="chat-img1">
-                                        <img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body1 clearfix">
-                                        <p class="message-sender-name">{{sender}}</p>
-                                        <p class="message-text">{{text}}</p>
-                                        <div class="chat_time">{{createdAt.toTimeString}}</div>
-                                    </div>
-                                </li>
-                                {{else}}
-                                    <h3 class="text-muted no-messages">There is not messages yet, but you might be the firs</h3>
-                                {{/each}}
-                                <!--<li class="left clearfix admin_chat">-->
-                                    <!--<span class="chat-img1 pull-right">-->
-                                        <!--<img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">-->
-                                    <!--</span>-->
-                                    <!--<div class="chat-body1 clearfix">-->
-                                        <!--<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>-->
-                                        <!--<div class="chat_time pull-left">09:40PM</div>-->
-                                    <!--</div>-->
-                                <!--</li>-->
-                            </ul>
-                        </div>
-
-                        <!--chat_area-->
-                        <div class="message_write">
-                            <textarea class="form-control" id="text-message-input" placeholder="type a message"></textarea>
-                        </div>
-                    </div>
-                </div>
-                {{/if}}
-                <!--message_section-->
+                    </li>
+                    {{/each}}
+                </ul>
             </div>
         </div>
     </div>
+    {{> Modal_room_create collection=CollectionTopics formid='formTopicInsert' modal='modal-topic-create' title='Create Topic'}}
+    <!--chat_sidebar-->
 </template>

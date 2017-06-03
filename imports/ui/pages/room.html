@@ -10,6 +10,14 @@
             </div>
         </div>
     </div>
-    {{> List_topics room=currentRoom}}
-    {{> Modal_room_create collection=CollectionTopics formid='formTopicInsert' modal='modal-topic-create' title='Create Topic'}}
+    <div class="main_section">
+        <div class="container">
+            <div class="chat_container">
+                {{> List_topics room=currentRoom}}
+                {{#if topicIsSelected}}
+                    {{> List_messages room=currentRoom}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
 </template>
