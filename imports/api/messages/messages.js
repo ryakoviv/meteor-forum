@@ -1,33 +1,32 @@
-import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
+
 SimpleSchema.extendOptions(['autoform']);
 
-export const Rooms = new Mongo.Collection('rooms');
+export const Messages = new Mongo.Collection('messages');
 
-Rooms.attachSchema(new SimpleSchema({
-    title: {
+Messages.attachSchema(new SimpleSchema({
+    text: {
         type: String,
-        label: 'Title'
+        label: 'Text'
     },
-    desc: {
+    topicId: {
         type: String,
-        label: 'Description',
-        autoform: {rows: 5}
-    },
-    createdAt: {
-        type: Date,
-        autoValue(){
-            return new Date();
-            return this.userId;
-        },
+        label: 'Id of topic',
         autoform: { type: "hidden" }
     },
     userId: {
         type: String,
         autoValue(){
             return this.userId;
+        },
+        autoform: { type: "hidden" }
+    },
+    createdAt: {
+        type: Date,
+        autoValue(){
+            return new Date();
         },
         autoform: { type: "hidden" }
     },

@@ -5,14 +5,16 @@
             <div class="thumbnail">
                 <div class="caption">
                     <div class="author">
-                        Organizer <b>Bhaumik</b> |
+                        Organizer <b>{{organizer}}</b> |
                         <br>
                         <time>{{createdAt.toDateString}}</time>
                     </div>
+                    {{# if isOwner}}
                     <div class="room-card-toolbar">
                         <span data-role="room-card-actions-update" data-toggle="modal" data-target="#modal-room-update"  class="glyphicon glyphicon-pencil"></span>
                         <span data-role="room-card-actions-remove" class="glyphicon glyphicon-trash"></span>
                     </div>
+                    {{/ if}}
                     <h3 class="room-card-title">{{title}}</h3>
                     <p class="flex-text text-muted">
                         {{desc}}

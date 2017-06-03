@@ -14,10 +14,14 @@
                             </div>
                         </div>
                         <div class="dropdown all_conversation">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="topics-header">
                                 <i class="fa fa-weixin" aria-hidden="true"></i>
                                 Choose topic
-                            </button>
+                                <a class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#modal-topic-create" href="#">
+                                    <span class="glyphicon btn-glyphicon glyphicon-plus"></span>
+                                    Create new
+                                </a>
+                            </div>
                         </div>
                         <div class="member_list">
                             <ul class="list-unstyled">
@@ -36,7 +40,7 @@
                 </div>
                 <!--chat_sidebar-->
 
-
+                {{#if topicIsSelected}}
                 <div class="col-sm-9 message_section">
                     <div class="row">
                         <div class="new_message_head">
@@ -46,37 +50,39 @@
 
                         <div class="chat_area">
                             <ul class="list-unstyled">
-                                <li class="left clearfix">
-                                    <span class="chat-img1 pull-left">
+                                {{#each messages}}
+                                <li class="left clearfix message {{#if isSender}}is-sender{{/if}}">
+                                    <span class="chat-img1">
                                         <img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">
                                     </span>
                                     <div class="chat-body1 clearfix">
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>
-                                        <div class="chat_time pull-right">09:40PM</div>
+                                        <p class="message-sender-name">{{sender}}</p>
+                                        <p class="message-text">{{text}}</p>
+                                        <div class="chat_time">{{createdAt.toTimeString}}</div>
                                     </div>
                                 </li>
-                                <li class="left clearfix admin_chat">
-                                    <span class="chat-img1 pull-right">
-                                        <img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body1 clearfix">
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>
-                                        <div class="chat_time pull-left">09:40PM</div>
-                                    </div>
-                                </li>
+                                {{else}}
+                                    <h3 class="text-muted no-messages">There is not messages yet, but you might be the firs</h3>
+                                {{/each}}
+                                <!--<li class="left clearfix admin_chat">-->
+                                    <!--<span class="chat-img1 pull-right">-->
+                                        <!--<img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">-->
+                                    <!--</span>-->
+                                    <!--<div class="chat-body1 clearfix">-->
+                                        <!--<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>-->
+                                        <!--<div class="chat_time pull-left">09:40PM</div>-->
+                                    <!--</div>-->
+                                <!--</li>-->
                             </ul>
                         </div>
 
                         <!--chat_area-->
                         <div class="message_write">
-                            <textarea class="form-control" placeholder="type a message"></textarea>
-                            <div class="clearfix"></div>
-                            <div class="chat_bottom">
-                                <a href="#" class="pull-right btn btn-success">Send</a>
-                            </div>
+                            <textarea class="form-control" id="text-message-input" placeholder="type a message"></textarea>
                         </div>
                     </div>
                 </div>
+                {{/if}}
                 <!--message_section-->
             </div>
         </div>

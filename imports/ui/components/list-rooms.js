@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
 import { AutoForm } from 'meteor/aldeed:autoform';
@@ -10,8 +11,15 @@ import { Rooms } from '../../api/rooms/rooms.js'
 import { Topics } from '../../api/topics/topics.js'
 
 Template.List_rooms.helpers({
+    isOwner(){
+        return this.userId === Meteor.userId();
+    },
     rooms() {
         return Rooms.find({});
+    },
+    organizer () {
+        let user = Meteor.users.findOne({_id: this.userId});
+        return user.username;
     },
 });
 
@@ -24,7 +32,8 @@ Template.List_rooms.onCreated(function () {
 Template.List_rooms.events({
     'click [data-role="room-card-actions-remove"]'(event, tmpl) {
         Rooms.remove({_id: this._id});
-        Topics.remove({roomId: this._id});
+        // TODO need delete related topics
+        // Topics.remove({roomId: this._id});???????????????????????????
     },
 
     'click [data-role="room-card-actions-update"]'(event, tmpl) {

@@ -2,7 +2,6 @@
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-    z-index: 9999999999999;
 }
 
 /* Add a gray background color and some padding to the footer */
@@ -19,6 +18,27 @@ section{width:100%; float:left;}
 .image-block{float:left; width:100%; margin-bottom:10px;}
 
 
+.login-link-text{
+    text-decoration: none!important;
+    color: #9d9d9d!important;
+    font-size: 18px!important;
+}
+
+.login-link-text:hover{
+    color: white!important;
+}
+.login-button-wrapper{
+    margin-top: 15px;
+}
+
+
+
+.jumbotron{
+    background-image: url(/images/Forum.png);
+}
+/*.accounts-dialog{*/
+    /*margin-top: 25px;*/
+/*}*/
 /*.grid-divider {*/
     /*position: relative;*/
     /*padding: 0;*/
@@ -116,7 +136,7 @@ section{width:100%; float:left;}
 .search-query:focus + button {
     z-index: 3;
 }
-.all_conversation button {
+.all_conversation .topics-header {
     background: #f5f3f3 none repeat scroll 0 0;
     border: 1px solid #dddddd;
     height: 38px;
@@ -280,8 +300,32 @@ section{width:100%; float:left;}
     float: left;
     width:100%;
 }
-.member_list li:hover {
+.member_list li:hover, .member_list li.active {
     background: #428bca none repeat scroll 0 0;
     color: #fff;
     cursor:pointer;
+}
+.message .chat-img1, .message .chat_time{
+    float: left;
+}
+
+.message.is-sender .chat-img1, .message.is-sender .chat_time{
+    float: right;
+}
+
+.message.is-sender .chat-body1{
+    margin: 0 50px 0 0;
+}
+.message-sender-name{
+    padding: 0!important;
+    margin: 0!important;
+    background-color: #fff!important;
+    font-weight: bold;
+}
+.message.is-sender .message-sender-name, .message.is-sender .message-text{
+    text-align: right;
+
+}
+.no-messages{
+    text-align: center;
 }
