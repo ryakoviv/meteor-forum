@@ -26,3 +26,4 @@ session
 accounts-ui
 accounts-password
 msavin:mongol
+momentjs:moment

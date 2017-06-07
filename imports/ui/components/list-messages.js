@@ -31,6 +31,12 @@ Template.List_messages.helpers({
     isSender(){
         return this.userId === Meteor.userId();
     },
+    timeFromNow(){
+        return  moment(this.createdAt).fromNow();
+    },
+    timeCreatedAt(){
+        return  moment(this.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    }
 });
 
 

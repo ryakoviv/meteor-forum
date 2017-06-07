@@ -21,6 +21,9 @@ Template.List_rooms.helpers({
         let user = Meteor.users.findOne({_id: this.userId});
         return user.username;
     },
+    dateCreatedAt(){
+        return  moment(this.createdAt).format("MM-DD-YYYY, h:mm:ss a");
+    }
 });
 
 Template.List_rooms.onCreated(function () {
