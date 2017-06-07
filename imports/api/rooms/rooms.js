@@ -20,7 +20,6 @@ Rooms.attachSchema(new SimpleSchema({
         type: Date,
         autoValue(){
             return new Date();
-            return this.userId;
         },
         autoform: { type: "hidden" }
     },
@@ -32,3 +31,11 @@ Rooms.attachSchema(new SimpleSchema({
         autoform: { type: "hidden" }
     },
 }, {tracker: Tracker}));
+
+if (Meteor.isServer) {
+    // This code only runs on the server
+    // Only publish tasks that are public or belong to the current user
+    Meteor.publish('rooms', function roomsPublication() {
+        return Rooms.find();
+    });
+}

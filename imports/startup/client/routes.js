@@ -4,6 +4,7 @@ import '../../ui/pages/home.js';
 import '../../ui/pages/room.js';
 import '../../ui/layouts/layout.js';
 
+
 Router.configure({
     layoutTemplate: 'Layout',
 });

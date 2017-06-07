@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session';
 
 
@@ -6,8 +7,11 @@ import './room.html';
 import '../components/list-topics.js';
 import '../components/list-messages.js';
 
-import { Topics } from '../../api/topics/topics.js';
 import { Rooms } from '../../api/rooms/rooms.js';
+
+Template.Room.onCreated(function roomOnCreated() {
+    Meteor.subscribe('topics');
+});
 
 Template.Room.onRendered(function () {
     Session.set('currentRoom',  this.data.currentRoom);
