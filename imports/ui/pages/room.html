@@ -1,5 +1,5 @@
 <template name="Room">
-
+    {{#if currentUser}}
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -14,10 +14,11 @@
         <div class="container">
             <div class="chat_container">
                 {{> List_topics room=currentRoom}}
-                {{#if topicIsSelected}}
-                    {{> List_messages room=currentRoom}}
-                {{/if}}
+                {{> List_messages room=currentRoom}}
             </div>
         </div>
     </div>
+    {{else}}
+        {{> Not_login}}
+    {{/if}}
 </template>

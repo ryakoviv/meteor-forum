@@ -142,6 +142,10 @@ section{width:100%; float:left;}
     height: 38px;
     text-align: left;
     width: 100%;
+    padding: 0 5px;
+}
+.topics-header .btn{
+    margin-top: 7px;
 }
 .all_conversation i {
     background: #e9e7e8 none repeat scroll 0 0;
@@ -152,6 +156,7 @@ section{width:100%; float:left;}
     line-height: 30px;
     text-align: center;
     width: 30px;
+    margin-top: 2px;
 }
 .all_conversation .caret {
     bottom: 0;
@@ -251,10 +256,11 @@ section{width:100%; float:left;}
 }
 .chat_area {
     float: left;
-    height: 300px;
+    height: calc(100vh - 350px);
     overflow-x: hidden;
     overflow-y: auto;
     width: 100%;
+    min-height: 300px;
 }
 .chat_area li {
     padding: 14px 14px 0;
@@ -269,6 +275,7 @@ section{width:100%; float:left;}
 .chat-body1 p {
     background: #fbf9fa none repeat scroll 0 0;
     padding: 10px;
+    margin: 0;
 }
 .chat_area .admin_chat .chat-body1 {
     margin-left: 0;
@@ -305,6 +312,11 @@ section{width:100%; float:left;}
     color: #fff;
     cursor:pointer;
 }
+.chat_time{
+    font-size: 11px;
+    color: #737373;
+    margin-bottom: 5px;
+}
 .message .chat-img1, .message .chat_time{
     float: left;
 }
@@ -327,5 +339,9 @@ section{width:100%; float:left;}
 
 }
 .no-messages{
+    text-align: center;
+}
+.please-login{
+    color: #666;
     text-align: center;
 }

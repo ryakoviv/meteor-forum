@@ -36,6 +36,7 @@
     </div>
 
     <div class="container">
+    {{#if currentUser}}
         <div class="row">
             <div class="col-lg-12">
                 <h1>Choose your room
@@ -49,5 +50,8 @@
         {{> List_rooms collection=CollectionRooms}}
 
         {{> Modal_room_create collection=CollectionRooms formid='formRoomInsert' modal='modal-room-create' title='Create Room'}}
+    {{else}}
+        {{> Not_login}}
+    {{/if}}
     </div>
 </template>

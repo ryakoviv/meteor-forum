@@ -27,3 +27,5 @@ accounts-ui
 accounts-password
 msavin:mongol
 momentjs:moment
+fortawesome:fontawesome
+utilities:avatar

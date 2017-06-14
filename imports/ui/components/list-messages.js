@@ -5,37 +5,25 @@ import { Meteor } from 'meteor/meteor';
 
 
 import './list-messages.html';
+import './list-messages-message.js';
 import '../components/modal-room-create.js';
 
 import { Messages } from '../../api/messages/messages.js';
 
-Template.List_messages.onCreated(function roomOnCreated() {
+Template.List_messages.onCreated(function() {
     Meteor.subscribe('messages');
+});
+
+Template.List_messages.onRendered(function() {
+    $('.chat_area').scrollTop($('.chat_area')[0].scrollHeight);
 });
 
 Template.List_messages.helpers({
     messages(){
-        let messages = Messages.find({topicId: Session.get('currentTopic')}, { sort: { createdAt: 1 }});
-        // watch the cursor for changes
-        let handle = messages.observe({
-            added:function(order){
-                $('.chat_area').scrollTop($('.chat_area')[0].scrollHeight);
-            }
-        });
-        return messages;
+        return Messages.find({topicId: Session.get('currentTopic')}, { sort: { createdAt: 1 }});
     },
-    sender () {
-        let user = Meteor.users.findOne({_id: this.userId});
-        return user.username;
-    },
-    isSender(){
-        return this.userId === Meteor.userId();
-    },
-    timeFromNow(){
-        return  moment(this.createdAt).fromNow();
-    },
-    timeCreatedAt(){
-        return  moment(this.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    topicIsSelected(){
+        return !!Session.get('currentTopic');
     }
 });
 

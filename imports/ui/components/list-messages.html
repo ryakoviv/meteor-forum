@@ -1,24 +1,16 @@
 <template name="List_messages">
+    {{#if topicIsSelected}}
     <div class="col-sm-9 message_section">
         <div class="row">
             <div class="new_message_head">
-                <div class="pull-left"><button><i class="fa fa-plus-square-o" aria-hidden="true"></i>Messages</button></div>
+                <div class="pull-left">Messages</div>
             </div>
             <!--new_message_head-->
 
             <div class="chat_area">
                 <ul class="list-unstyled">
                     {{#each messages}}
-                        <li class="left clearfix message {{#if isSender}}is-sender{{/if}}">
-                                        <span class="chat-img1">
-                                            <img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">
-                                        </span>
-                            <div class="chat-body1 clearfix">
-                                <p class="message-sender-name">{{sender}}</p>
-                                <p class="message-text">{{text}}</p>
-                                <div class="chat_time" title="{{timeCreatedAt}}">{{timeFromNow}}</div>
-                            </div>
-                        </li>
+                        {{> List_messages_message}}
                     {{else}}
                         <h3 class="text-muted no-messages">There is not messages yet, but you might be the firs</h3>
                     {{/each}}
@@ -31,4 +23,5 @@
             </div>
         </div>
     </div>
+    {{/if}}
 </template>

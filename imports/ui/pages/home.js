@@ -4,12 +4,13 @@ import { Meteor } from 'meteor/meteor';
 import './home.html';
 import '../components/list-rooms.js';
 import '../components/modal-room-create.js';
+import '../components/not-login.js';
+
 
 import { Rooms } from '../../api/rooms/rooms.js';
 
-Template.Home.onCreated(function homeOnCreated() {
+Template.Home.onCreated(function() {
     Meteor.subscribe('rooms');
-    Meteor.subscribe('users');
 });
 
 Template.Home.helpers({

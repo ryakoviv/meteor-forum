@@ -1,0 +1,14 @@
+<template name="List_messages_message">
+    <li class="left clearfix message {{#if isSender}}is-sender{{/if}}">
+        {{> avatar userId=sender._id
+                size="middle"
+                shape="circle"
+                class="chat-img1"
+                bgColor=sender.color}}
+        <div class="chat-body1 clearfix">
+            <p class="message-sender-name">{{sender.username}}</p>
+            <p class="message-text">{{text}}</p>
+            <div class="chat_time" title="{{timeCreatedAt}}">{{timeFromNow}}</div>
+        </div>
+    </li>
+</template>
