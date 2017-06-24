@@ -16,7 +16,9 @@
                     {{/each}}
                 </ul>
             </div>
-
+            {{#if isTyping}}
+                <span>{{isTyping}}</span>
+            {{/if}}
             <!--chat_area-->
             <div class="message_write">
                 <textarea class="form-control" id="text-message-input" placeholder="type a message"></textarea>

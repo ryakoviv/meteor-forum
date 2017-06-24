@@ -270,7 +270,7 @@ section{width:100%; float:left;}
     width: 40px;
 }
 .chat_area .chat-body1 {
-    margin-left: 50px;
+    margin-left: 55px;
 }
 .chat-body1 p {
     background: #fbf9fa none repeat scroll 0 0;
@@ -326,7 +326,7 @@ section{width:100%; float:left;}
 }
 
 .message.is-sender .chat-body1{
-    margin: 0 50px 0 0;
+    margin: 0 55px 0 0;
 }
 .message-sender-name{
     padding: 0!important;

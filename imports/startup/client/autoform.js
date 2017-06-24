@@ -11,7 +11,6 @@ AutoForm.addHooks(null, {
 AutoForm.addHooks('formTopicInsert', {before: {
         insert: function (doc) {
             doc.roomId = Session.get('currentRoom');
-            console.log(doc);
             return doc;
         }
     }}

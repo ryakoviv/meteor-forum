@@ -24,6 +24,12 @@ Topics.attachSchema(new SimpleSchema({
         },
         autoform: { type: "hidden" }
     },
+    isTyping: {
+        type: Array,
+        optional: true,
+        autoform: { type: "hidden" }
+    },
+    'isTyping.$': { type: String},
 }, {tracker: Tracker}));
 
 if (Meteor.isServer) {
